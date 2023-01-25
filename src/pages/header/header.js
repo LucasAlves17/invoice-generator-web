@@ -10,12 +10,16 @@ export default () => {
   const container = document.createElement("div");
 
   const headerTemplate = `
-    <h1>Invoice Generator</h1>
-    <a id='logoutSubmit' href='#login'>
-      <span><ion-icon name='log-out-outline'></ion-icon></span>
-      <span>Logout</span>
-    </a>
-`;
+    <section class='header'>
+      <h1>Invoice Generator</h1>
+      <section class='logout'>
+        <a id='logoutSubmit' class='logout-submit' href='#login'>
+          <span><ion-icon name='log-out-outline'></ion-icon></span>
+          <span>Logout</span>
+        </a>
+      </section>
+    </section>
+  `;
 
   container.innerHTML = headerTemplate;
 

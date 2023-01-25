@@ -4,26 +4,43 @@ export default () => {
   const container = document.createElement("div");
 
   const createInvoiceTemplate = `
-    <form id="createInvoiceForm">
-      <label for="number">Number:</label>
-      <input type="text" id="number" name="number" required>
+    <a class='create-invoice-back' href='#invoices'>Back</a>
+
+    <form id="createInvoiceForm" class='create-invoice-form'>
+      <section class='create-invoice-inputs'> 
+
+        <section class='create-invoice-input'>
+          <label for="number">Number:</label>
+          <input type="text" id="number" name="number" required>
+        </section>
+
+        <section class='create-invoice-input'>
+          <label for="date">Date:</label>
+          <input type="date" id="date" name="date" required>
+        </section>
+
+        <section class='create-invoice-input'>
+          <label for="company">Company:</label>
+          <input type="text" id="company" name="company" required>
+        </section>
+
+        <section class='create-invoice-input'>
+          <label for="charge_for">Charge For:</label>
+          <input type="text" id="charge_for" name="charge_for" required>
+        </section>
+
+        <section class='create-invoice-input'>
+          <label for="total_in_cents">Total in Cents:</label>
+          <input type="text" id="total_in_cents" name="total_in_cents" required>
+        </section>
+        
+        <section class='create-invoice-input'>
+          <label for="emails">Emails:</label>
+          <input type="text" id='emails' name="emails" placeholder='Add more emails separating with comma' required>
+        </section>
+      </section>
       
-      <label for="date">Date:</label>
-      <input type="date" id="date" name="date" required>
-      
-      <label for="company">Company:</label>
-      <input type="text" id="company" name="company" required>
-      
-      <label for="charge_for">Charge For:</label>
-      <input type="text" id="charge_for" name="charge_for" required>
-      
-      <label for="total_in_cents">Total in Cents:</label>
-      <input type="text" id="total_in_cents" name="total_in_cents" required>
-      
-      <label for="emails">Emails:</label>
-      <input type="text" id='emails' name="emails" placeholder='Add more emails separating with comma' required>
-      
-      <input type="submit" value="Create Invoice">
+      <input class='create-token-submit-input' type="submit" value="Create Invoice">
     </form>
   `;
 

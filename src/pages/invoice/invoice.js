@@ -12,24 +12,30 @@ export default () => {
     const invoice = invoiceResponse.body;
 
     const invoiceTemplate = `
-      <a href='#invoices'>Back</a>
+      <a class='invoice-back' href='#invoices'>Back</a>
 
-      <div>
-        <p>Invoice number: ${invoice.number}</p>
-        <p>Company: ${invoice.company}</p>
-        <p>Date: ${invoice.date}</p>
-        <p>Charge for: ${invoice.charge_for}</p>
-        <p>Total: ${invoice.total_in_cents / 100}</p>
-        <p>Emails sent: ${invoice.emails}</p>
-      </div>
+      <section class='invoce-body'>
+        <section class='invoice-attributes'>
+          <p class='invoice-attribute'>Invoice number: ${invoice.number}</p>
+          <p class='invoice-attribute'>Company: ${invoice.company}</p>
+          <p class='invoice-attribute'>Date: ${invoice.date}</p>
+          <p class='invoice-attribute'>Charge for: ${invoice.charge_for}</p>
+          <p class='invoice-attribute'>Total: ${
+            invoice.total_in_cents / 100
+          }</p>
+          <p class='invoice-attribute'>Emails sent: ${invoice.emails}</p>
+        </section>
 
-      <div>
-        <input id='inputEmails' class='invoice-input-emails' placeholder='Add more emails separating with comma' >
-        <p id='emailsSent'></p>
-
-        <button id='buttonSend'>Send</button>
-        <button id='buttonDownloadPdf'>Download PDF</button>
-      </div>
+        <section class='invoice-download-pdf'> 
+            <button id='buttonDownloadPdf'>Download PDF</button>
+        </section>
+      
+        <section class='invoice-emails'>
+          <input id='inputEmails' class='invoice-input-emails' placeholder='Add more emails separating with comma' >
+          <p id='emailsSent'></p>
+          <button id='buttonSend'>Send</button>
+        </section>
+      </section>
     `;
 
     container.innerHTML = invoiceTemplate;

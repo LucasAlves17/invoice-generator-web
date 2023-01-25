@@ -1,0 +1,36 @@
+.invoice-back {
+  margin-left: 18px;
+}
+
+.invoce-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0px 40px;
+}
+
+.invoice-attributes {
+  background: #a0a0a0;
+  padding: 30px;
+  border-radius: 5%;
+}
+
+.invoice-attribute {
+  font-size: larger;
+}
+
+.invoice-download-pdf {
+  margin-top: 10px;
+}
+.invoice-emails {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.invoice-input-emails {
+  width: 400px;
+  margin-right: 10px;
+}

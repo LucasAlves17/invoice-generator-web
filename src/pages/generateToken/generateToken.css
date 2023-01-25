@@ -1,0 +1,35 @@
+.generate-token {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 165, 122, 0.46) 0%,
+    rgba(0, 165, 122, 0.64) 17.19%,
+    #00a57a 49.11%,
+    rgba(0, 165, 122, 0.66) 84.4%,
+    rgba(0, 165, 122, 0.47) 100%
+  );
+  position: absolute;
+  min-width: 500px;
+  width: 50vw;
+  height: 50vh;
+  left: 25%;
+  top: 25%;
+  border-radius: 2%;
+}
+
+.generate-token-form {
+  display: flex;
+  flex-direction: row;
+}
+
+.generate-token-email-input {
+  width: 500px;
+  margin-right: 10px;
+}
+
+.generate-token-back-to-login {
+  margin-top: 40px;
+}

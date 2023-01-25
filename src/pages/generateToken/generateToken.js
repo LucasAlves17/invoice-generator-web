@@ -4,14 +4,24 @@ export default () => {
   const container = document.createElement("div");
 
   const generateTokenTemplate = `
-    <p> Generate Token </p>
-    <a href='#login'>Back to login</a>
+    <section class='generate-token'>
+      <h1> Generate Token </h1>
+      
+      <form class='generate-token-form'>
 
-    <form class='generate-token-form'>
-      <input id='inputEmail' class='generate-token-input-email' placeholder='Insert your email'>
-      <p id='emailConfirmation'></p>
-      <a id='submitEmail' href='#login'>Generate</a>
-    </form>
+        <section class='generate-token-email'> 
+          <input id='inputEmail' class='generate-token-email-input' placeholder='Insert your email'>
+          <p id='emailConfirmation'></p>
+        </section>
+        
+        <section class='generate-token-button'> 
+          <button id='submitEmail'>Generate</button>
+        </section>
+        
+      </form>
+
+      <a class='generate-token-back-to-login' href='#login'>Back to login</a>
+    </section>
   `;
 
   container.innerHTML = generateTokenTemplate;

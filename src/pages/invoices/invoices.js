@@ -4,19 +4,21 @@ export default () => {
   const container = document.createElement("div");
 
   const header = `
-    <a id='createInvoice' href='#create-invoice'>New invoice</a>
+    <section class='invoices-header'>
+      <a id='createInvoice' href='#create-invoice'>New invoice</a>
 
-    <form id="invoiceFilters">
-      <label for="number">Number:</label>
-      <input type="text" id="number" name="number">
-      
-      <label for="date">Date:</label>
-      <input type="date" id="date" name="date">
-      
-      <input type="submit" value="Filter">
-    </form>
+      <form id="invoiceFilters" class='invoices-form'>
+        <label for="number">Number:</label>
+        <input type="text" id="number" name="number">
+        
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date">
+        
+        <input type="submit" value="Filter">
+      </form>
+    </section>
 
-    <div id='bodyInvoiceList'></div>
+    <div id='bodyInvoiceList' class='invoices-body'></div>
   `;
 
   container.innerHTML = header;
@@ -41,17 +43,17 @@ export default () => {
 
     const invoiceTemplate = invoiceList.body.map(
       (invoice) => `
-      <div class='main-invoice-list' data-invoice-id=${invoice.id}>
-        <p>${invoice.number}</p>
-        <p>${invoice.company}</p>
-        <p>${invoice.date}</p>
+      <div class='invoices-item' data-invoice-id=${invoice.id}>
+        <p class='invoices-attribute'>Invoice number: ${invoice.number}</p>
+        <p class='invoices-attribute'>Company: ${invoice.company}</p>
+        <p class='invoices-attribute'>Date: ${invoice.date}</p>
       </div>
     `
     );
 
     container.querySelector("#bodyInvoiceList").innerHTML = invoiceTemplate;
 
-    const invoices = container.querySelectorAll(".main-invoice-list");
+    const invoices = container.querySelectorAll(".invoices-item");
 
     invoices.forEach((invoice) => {
       invoice.addEventListener("click", async (e) => {

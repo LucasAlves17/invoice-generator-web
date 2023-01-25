@@ -4,16 +4,17 @@ export default () => {
   const container = document.createElement("div");
 
   const tokenLoginTemplate = `
-    <p> Login </p>
+    <section class='signup'>
+      <h1> Welcome to the Invoice Generator, please enter a token </h1>
     
-
-    <form class='login-form'>
-      <input id='inputToken' class='login-input-token' placeholder='Insert your token'>
-      <p id='invalidToken'></p>
-      <a id='submitToken' href='#invoices'>Login</a>
-      <p>Don't have an account or forgot your token? <a href='#generate-token'>Generate a new one </a></p>
-    </form>
-`;
+      <form class='login-form'>
+        <input id='inputToken' class='login-input-token' placeholder='Insert your token'>
+        <p id='invalidToken'></p>
+        <a id='submitToken' href='#invoices'>Login</a>
+        <p class='login-generate-new-token'>Don't have an account or forgot your token? <a href='#generate-token'>Generate a new one </a></p>
+      </form>
+    </section>
+  `;
 
   container.innerHTML = tokenLoginTemplate;
 

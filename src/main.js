@@ -8,8 +8,8 @@ import header from "./pages/header/header.js";
 const main = document.querySelector("#root");
 
 const init = () => {
-  console.log("oi");
-  switch (window.location.hash) {
+  const hash = window.location.hash;
+  switch (hash) {
     case "":
       main.appendChild(login());
       break;
@@ -18,10 +18,6 @@ const init = () => {
       break;
     case "#generate-token":
       main.appendChild(generateToken());
-      break;
-    case "#invoice":
-      main.appendChild(header());
-      main.appendChild(invoice());
       break;
     case "#invoices":
       main.appendChild(header());
@@ -35,7 +31,12 @@ const init = () => {
       main.appendChild(login());
       break;
     default:
-      main.appendChild(login());
+      if (hash.startsWith("#invoices/")) {
+        main.appendChild(header());
+        main.appendChild(invoice());
+      } else {
+        main.appendChild(login());
+      }
   }
 };
 

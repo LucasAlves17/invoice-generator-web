@@ -1,0 +1,24 @@
+{
+  "name": "invoice-generator-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "serve -l 3001 -s src/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "serve": "^13.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LucasAlves17/invoice-generator-web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LucasAlves17/invoice-generator-web/issues"
+  },
+  "homepage": "https://github.com/LucasAlves17/invoice-generator-web#readme"
+}

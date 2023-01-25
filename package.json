@@ -4,11 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "serve -l 3001 -s src/",
+    "start": "web-dev-server --root-dir src/ --port 3001 --node-resolve --open --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "devDependencies": {
-    "serve": "^13.0.2"
   },
   "repository": {
     "type": "git",
@@ -20,5 +17,11 @@
   "bugs": {
     "url": "https://github.com/LucasAlves17/invoice-generator-web/issues"
   },
-  "homepage": "https://github.com/LucasAlves17/invoice-generator-web#readme"
+  "homepage": "https://github.com/LucasAlves17/invoice-generator-web#readme",
+  "dependencies": {
+    "jspdf": "^2.5.1"
+  },
+  "devDependencies": {
+    "@web/dev-server": "^0.1.35"
+  }
 }

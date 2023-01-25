@@ -1,3 +1,5 @@
+import { login } from "../../api/api.js";
+
 export default () => {
   if (localStorage.getItem("Authorization")) {
     validateToken(localStorage.getItem("Authorization"));
@@ -7,15 +9,15 @@ export default () => {
 
   const container = document.createElement("div");
 
-  const header = `
+  const headerTemplate = `
     <h1>Invoice Generator</h1>
     <a id='logoutSubmit' href='#login'>
       <span><ion-icon name='log-out-outline'></ion-icon></span>
-      <span>Sair</span>
+      <span>Logout</span>
     </a>
 `;
 
-  container.innerHTML = header;
+  container.innerHTML = headerTemplate;
 
   const logoutSubmit = container.querySelector("#logoutSubmit");
 

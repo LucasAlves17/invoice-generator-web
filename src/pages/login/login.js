@@ -3,7 +3,7 @@ import { login } from "../../api/api.js";
 export default () => {
   const container = document.createElement("div");
 
-  const tokenLogin = `
+  const tokenLoginTemplate = `
     <p> Login </p>
     
 
@@ -11,11 +11,11 @@ export default () => {
       <input id='inputToken' class='login-input-token' placeholder='Insert your token'>
       <p id='invalidToken'></p>
       <a id='submitToken' href='#invoices'>Login</a>
-      <p>Did you forget your token? <a href='#generate-token'>Generate a new one </a></p>
+      <p>Don't have an account or forgot your token? <a href='#generate-token'>Generate a new one </a></p>
     </form>
 `;
 
-  container.innerHTML = tokenLogin;
+  container.innerHTML = tokenLoginTemplate;
 
   const inputToken = container.querySelector("#inputToken");
   const invalidToken = container.querySelector("#invalidToken");

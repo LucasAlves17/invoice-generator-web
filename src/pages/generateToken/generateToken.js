@@ -3,8 +3,9 @@ import { tokenGenerator } from "../../api/api.js";
 export default () => {
   const container = document.createElement("div");
 
-  const generateToken = `
+  const generateTokenTemplate = `
     <p> Generate Token </p>
+    <a href='#login'>Back to login</a>
 
     <form class='generate-token-form'>
       <input id='inputEmail' class='generate-token-input-email' placeholder='Insert your email'>
@@ -13,7 +14,7 @@ export default () => {
     </form>
   `;
 
-  container.innerHTML = generateToken;
+  container.innerHTML = generateTokenTemplate;
 
   const inputEmail = container.querySelector("#inputEmail");
   const emailConfirmation = container.querySelector("#emailConfirmation");

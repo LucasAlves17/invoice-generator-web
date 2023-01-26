@@ -1,3 +1,5 @@
+import { createQueryParams } from "../utils/utils";
+
 const API_BASE_URL = "http://localhost:3000/api";
 
 async function login(email) {
@@ -69,12 +71,6 @@ async function createInvoice(invoice) {
   });
 
   return { status: response.status, body: await response.json() };
-}
-
-function createQueryParams(params) {
-  return Object.keys(params)
-    .map((key) => `${key}=${encodeURI(params[key])}`)
-    .join("&");
 }
 
 export {

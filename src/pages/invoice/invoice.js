@@ -1,5 +1,6 @@
 import { getInvoice, editInvoiceEmails } from "../../api/api.js";
-import { jsPDF } from "../../../node_modules/jspdf/dist/jspdf.es.js";
+import { jsPDF } from "jspdf";
+import { formatDate } from "../../utils/utils.js";
 
 export default () => {
   const id = window.location.hash.substring("#invoices/".length);
@@ -18,9 +19,9 @@ export default () => {
         <section class='invoice-attributes'>
           <p class='invoice-attribute'>Invoice number: ${invoice.number}</p>
           <p class='invoice-attribute'>Company: ${invoice.company}</p>
-          <p class='invoice-attribute'>Date: ${invoice.date}</p>
+          <p class='invoice-attribute'>Date: ${formatDate(invoice.date)}</p>
           <p class='invoice-attribute'>Charge for: ${invoice.charge_for}</p>
-          <p class='invoice-attribute'>Total: ${
+          <p class='invoice-attribute'>Total: $${
             invoice.total_in_cents / 100
           }</p>
           <p class='invoice-attribute'>Emails sent: ${invoice.emails}</p>
@@ -64,10 +65,10 @@ export default () => {
       const doc = new jsPDF();
 
       doc.text(`Invoice number: ${invoice.number}`, 10, 10);
-      doc.text(`Date: ${invoice.date}`, 10, 20);
+      doc.text(`Date: ${formatDate(invoice.date)}`, 10, 20);
       doc.text(`Company: ${invoice.company}`, 10, 30);
       doc.text(`Charge for: ${invoice.charge_for}`, 10, 40);
-      doc.text(`Total: ${invoice.total_in_cents / 100}`, 10, 50);
+      doc.text(`Total: $${invoice.total_in_cents / 100}`, 10, 50);
       doc.save("invoice.pdf");
     });
   };

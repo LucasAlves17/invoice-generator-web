@@ -1,4 +1,5 @@
 import { getAllInvoices } from "../../api/api.js";
+import { formatDate } from "../../utils/utils.js";
 
 export default () => {
   const container = document.createElement("div");
@@ -41,15 +42,17 @@ export default () => {
   const showInvoices = async (filters = {}) => {
     const invoiceList = await getAllInvoices(filters);
 
-    const invoiceTemplate = invoiceList.body.map(
-      (invoice) => `
-      <div class='invoices-item' data-invoice-id=${invoice.id}>
-        <p class='invoices-attribute'>Invoice number: ${invoice.number}</p>
-        <p class='invoices-attribute'>Company: ${invoice.company}</p>
-        <p class='invoices-attribute'>Date: ${invoice.date}</p>
-      </div>
-    `
-    );
+    const invoiceTemplate = invoiceList.body
+      .map(
+        (invoice) => `
+          <div class='invoices-item' data-invoice-id=${invoice.id}>
+            <p class='invoices-attribute'>Invoice number: ${invoice.number}</p>
+            <p class='invoices-attribute'>Company: ${invoice.company}</p>
+            <p class='invoices-attribute'>Date: ${formatDate(invoice.date)}</p>
+          </div>
+        `
+      )
+      .join("");
 
     container.querySelector("#bodyInvoiceList").innerHTML = invoiceTemplate;
 

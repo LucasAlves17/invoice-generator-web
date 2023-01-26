@@ -11,7 +11,7 @@ export default () => {
 
         <section class='create-invoice-input'>
           <label for="number">Number:</label>
-          <input type="text" id="number" name="number" required>
+          <input type="number" id="number" name="number" required>
         </section>
 
         <section class='create-invoice-input'>
@@ -30,8 +30,8 @@ export default () => {
         </section>
 
         <section class='create-invoice-input'>
-          <label for="total_in_cents">Total in Cents:</label>
-          <input type="text" id="total_in_cents" name="total_in_cents" required>
+          <label for="total_in_cents">Total:</label>
+          <input type="number" min="0.00" max="100000.00" step="0.01" id="total_in_cents" name="total_in_cents" required>
         </section>
         
         <section class='create-invoice-input'>
@@ -55,10 +55,15 @@ export default () => {
     const invoice = {};
 
     for (const [key, value] of formData.entries()) {
-      if (key === "emails") {
-        invoice[key] = value.split(",");
-      } else {
-        invoice[key] = value;
+      switch (key) {
+        case "emails":
+          invoice[key] = value.split(",");
+          break;
+        case "total_in_cents":
+          invoice[key] = Math.trunc(value * 100);
+          break;
+        default:
+          invoice[key] = value;
       }
     }
 
